@@ -1,31 +1,22 @@
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
-        Arrays.sort(nums);
-        
-        Set<List<Integer>> result = new LinkedHashSet<>();
-        
-        for(int i = 0; i < nums.length - 3l; i++){
-            for(int j = i+1; j<nums.length-2; j++){
-                int k = j + 1;
-                int l = nums.length - 1;
-                
-                while(k < l){
-                    int sum = nums[i] + nums[j] + nums[k] + nums[l];
-                    if(sum == target){
-                        List<Integer> list = new ArrayList<>();
-                        list.add(nums[i]);
-                        list.add(nums[j]);
-                        list.add(nums[k]);
-                        list.add(nums[l]);
-                        result.add(list);
-                        k++;
-                        l--;
-                    } else if(sum > target)
-                        l--;
-                    else k++;
+        Set<List<Integer>> resSet = new HashSet<>();
+    int len = nums.length;
+    if (nums == null || len <= 3){ return new ArrayList<>(); }
+    Arrays.sort(nums);
+    for(int i = 0; i < len; i++){
+        for(int j = i+1; j < len; j++){
+            Set<Integer> set = new HashSet<>();
+            for(int k = j+1; k < len; k++){
+                int threeSum = nums[i] + nums[j] + nums[k];
+                if(!set.contains(nums[k])){ set.add(target - threeSum); }
+                else{
+                    resSet.add( Arrays.asList(nums[i], nums[j], nums[k], target - threeSum) );
                 }
             }
         }
-        return result.stream().collect(Collectors.toList());
+    }
+    List<List<Integer>> resList = new ArrayList<>(resSet);
+    return resList;
     }
 }
