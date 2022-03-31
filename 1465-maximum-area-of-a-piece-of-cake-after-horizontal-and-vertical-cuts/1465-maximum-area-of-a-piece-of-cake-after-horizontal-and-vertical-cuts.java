@@ -3,18 +3,20 @@ class Solution {
         Arrays.sort(horizontalCuts);
         Arrays.sort(verticalCuts);
         
-        int maxHeight = Math.max(horizontalCuts[0] - 0, h - horizontalCuts[horizontalCuts.length - 1]);
-        for(int i = 1; i < horizontalCuts.length; i++){
-            int horizotalWidth = horizontalCuts[i] - horizontalCuts[i-1];
-            maxHeight = Math.max(maxHeight, horizotalWidth);
+        int mod = (int)1e9+7;
+        int m = horizontalCuts.length;
+        int n = verticalCuts.length;
+        
+        int maxHeight = Math.max(horizontalCuts[0], h-horizontalCuts[m-1]);
+        int maxWidth = Math.max(verticalCuts[0], w-verticalCuts[n-1]);
+        
+        for(int i = 1; i < horizontalCuts.length; ++i){
+            maxHeight = Math.max(maxHeight, horizontalCuts[i] - horizontalCuts[i - 1]);
         }
         
-        int maxWidth = Math.max(verticalCuts[0] - 0, w - verticalCuts[verticalCuts.length - 1]);
-        for(int i = 1; i < verticalCuts.length; i++){
-            int verticalWidth = verticalCuts[i] - verticalCuts[i-1];
-            maxWidth = Math.max(maxWidth, verticalWidth);
+        for(int i = 1; i < verticalCuts.length; ++i){
+            maxWidth = Math.max(maxWidth, verticalCuts[i] - verticalCuts[i - 1]);
         }
-        long ans = 1L * maxHeight * maxWidth;
-        return (int)(ans % 1000000007);
+        return (int)(maxHeight * 1L * maxWidth % mod);
     }
 }
