@@ -1,19 +1,17 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<Integer> curr = new ArrayList<Integer>();
-        List<List<Integer>> list = new ArrayList<>();
-        rec(nums,0,curr,list);
-        return list;
+        List<List<Integer>> subsets = new ArrayList<>();
+        generateSubset(0,nums, new ArrayList<Integer>(), subsets);
+        return subsets;
     }
-            
-       public void rec(int[] nums, int i, List<Integer> curr, List<List<Integer>> list){
-            if(i == nums.length){
-                list.add(new ArrayList<Integer>(curr));
-                return;
-            }
-            curr.add(nums[i]);
-            rec(nums, i + 1, curr, list);
-            curr.remove(curr.size() - 1);
-            rec(nums, i + 1, curr, list);
+    
+    public void generateSubset(int idx, int[] nums, List<Integer> current, List<List<Integer>> subsets){
+        subsets.add(new ArrayList<>(current));
+        for(int i = idx; i < nums.length; i++){
+            current.add(nums[i]);
+            generateSubset(i + 1, nums, current, subsets);
+            current.remove(current.size() - 1);
         }
+    }
+    
 }
