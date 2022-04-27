@@ -19,5 +19,4 @@ class Solution {
         node.right = helper(nums, mid + 1, high);
         return node;
     }
-    
 }
