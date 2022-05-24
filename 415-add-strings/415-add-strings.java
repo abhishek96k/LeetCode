@@ -1,20 +1,19 @@
 class Solution {
     public String addStrings(String num1, String num2) {
-        
-        int l1 = num1.length() - 1;
-        int l2 = num2.length() - 1;
+        StringBuilder ans = new StringBuilder();
+        int dummy1 = num1.length() - 1;
+        int dummy2 = num2.length() - 1;
         int carry = 0;
-        StringBuilder res = new StringBuilder();
         
-        while(l1 >= 0 || l2 >= 0){
+        while(dummy1 >= 0 || dummy2 >= 0){
             int sum = carry;
-            sum += (l1 >= 0) ? num1.charAt(l1--) - '0' : 0;
-            sum += (l2 >= 0) ? num2.charAt(l2--) - '0' : 0;
+            sum += (dummy1 >= 0) ? num1.charAt(dummy1--) - '0' : 0;
+            sum += (dummy2 >= 0) ? num2.charAt(dummy2--) - '0' : 0;
             
             carry = sum / 10;
-            res.append(sum % 10);
+            ans.append(sum % 10);
         }
-        if(carry != 0) res.append(carry);
-        return res.reverse().toString();
+        if(carry != 0) ans.append(carry);
+        return ans.reverse().toString();
     }
 }
