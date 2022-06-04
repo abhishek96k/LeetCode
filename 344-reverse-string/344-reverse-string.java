@@ -1,4 +1,6 @@
 class Solution {
+    
+    // TC: o(n) SC: o(1)
     public void reverseString(char[] s) {
         int start = 0;
         int end = s.length - 1;
