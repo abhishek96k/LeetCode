@@ -1,6 +1,4 @@
 class Solution {
-    // TC: o(n) SC: o(1) 
-    
     public int singleNumber(int[] nums) {
         int ans = nums[0];
         
