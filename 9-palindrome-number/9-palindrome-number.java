@@ -1,11 +1,10 @@
 class Solution {
-    // TC: o(log(n)) SC: o(1)
-    
     public boolean isPalindrome(int x) {
-        if(x < 0 || (x != 0 && x%10 == 0))
+        if(x < 0 || (x != 0 && x % 10 == 0)){
             return false;
-        int num = x;
+        }
         int rev = 0;
+        int num = x;
         
         while(num > rev){
             int lastDigit = num % 10;
