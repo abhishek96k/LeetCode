@@ -1,4 +1,6 @@
 class Solution {
+    
+    // TC: o(n) SC: o(1)
     public int removePalindromeSub(String s) {
         if(s.isBlank()) {
             return 0;
