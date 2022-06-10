@@ -1,8 +1,10 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int lsf = Integer.MAX_VALUE; //Least So Fear
-        int op = 0; // Overall Profit
-        int pist = 0; // Profit If sold today
+        
+//      lsf = [Least so far], op = [Overall profit], pist = [Profit if sold today] 
+        int lsf = Integer.MAX_VALUE;
+        int op = 0;
+        int pist = 0;
         
         for(int i = 0; i < prices.length; i++){
             if(prices[i] < lsf){
@@ -13,6 +15,6 @@ class Solution {
                 op = pist;
             }
         }
-            return op;
+        return op;
     }
 }
