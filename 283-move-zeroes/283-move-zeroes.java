@@ -1,22 +1,17 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        int cur = 0;
-        int i = 0;
+        if(nums.length == 1) return;
         
-        while ( cur < nums.length){
-            if( nums[cur] == 0){
-                cur++;
-            } else {
-                nums[i] = nums[cur];
-                i++;
-                cur++;
+        int left = 0;
+        for(int right = 0; right < nums.length; right++){
+            if(nums[right] != 0){
+                nums[left] = nums[right];
+                left++;
             }
         }
-        
-        while ( i < nums.length){
+        for(int i = left; i < nums.length; i++){
             nums[i] = 0;
-            i++;
-        
         }
     }
 }
+// TC: o(n) SC: o(1)
