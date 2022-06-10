@@ -6,9 +6,8 @@ class Solution {
         for(int right = 0; right < prices.length; right++){
             if(prices[right] > prices[left]){
                 profit = Math.max(profit, prices[right] - prices[left]);
-            } else {
+            } else 
                 left = right;
-            }
         }
         return profit;
     }
