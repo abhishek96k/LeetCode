@@ -17,3 +17,4 @@ class Solution {
         return res == -1 ? -1 : nums.length - res;
     }
 }
+// TC: o(n) SC: o(1)
