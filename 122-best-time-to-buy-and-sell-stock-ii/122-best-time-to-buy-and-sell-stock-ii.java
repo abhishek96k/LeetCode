@@ -12,3 +12,5 @@ class Solution {
         return profit;
     }
 }
+
+// TC: o(n) SC: o(1)
