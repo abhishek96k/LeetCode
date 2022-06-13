@@ -14,3 +14,6 @@ class Solution {
         return result;
     }
 }
+
+
+// TC:o(n) SC: o(n)
