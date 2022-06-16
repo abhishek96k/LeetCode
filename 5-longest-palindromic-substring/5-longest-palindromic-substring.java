@@ -6,7 +6,7 @@ class Solution {
             expanAroundCenter(s, i, i);
             expanAroundCenter(s, i, i + 1);
         }
-            return s.substring(start, end + 1);
+        return s.substring(start, end + 1);
     }
     
     private void expanAroundCenter(String s,int left, int right){
