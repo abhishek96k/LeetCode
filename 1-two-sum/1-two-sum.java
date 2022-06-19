@@ -1,7 +1,7 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < nums.length; i++){
             int diff = target - nums[i];
             if(map.containsKey(diff)){
@@ -14,6 +14,3 @@ class Solution {
         return result;
     }
 }
-
-
-// TC:o(n) SC: o(n)
