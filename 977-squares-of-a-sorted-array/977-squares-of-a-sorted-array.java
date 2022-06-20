@@ -1,40 +1,23 @@
 class Solution {
     public int[] sortedSquares(int[] nums) {
+        int size = nums.length;
+        int p1 = 0, p2 = nums.length - 1;
+        int curr = size - 1;
+        int[] output = new int[size];
         
-        int fi = 0;
-        int li = nums.length - 1;
-        int ni = li;
-        int[] idx = new int[ni + 1];
-        
-        while (fi <= li){
-            if(Math.abs(nums[fi]) < (Math.abs(nums[li]))){
-                idx[ni] = nums[li] * nums[li];
-                li--;
+        while(p1 <= p2) {
+            int tempLeft = nums[p1] * nums[p1];
+            int tempRight = nums[p2] * nums[p2];
+            if(tempLeft > tempRight) {
+                output[curr] = tempLeft;
+                curr--;
+                p1++;
             } else {
-                idx[ni] = nums[fi] * nums[fi];
-                fi++;
+                output[curr] = tempRight;
+                curr--;
+                p2--;
             }
-            ni--;
         }
-            return idx;
+        return output;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
