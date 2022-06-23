@@ -1,35 +1,36 @@
 class Solution {
     public int[] sortArray(int[] nums) {
-        int N = nums.length;
-        mergeSort(nums, 0, N - 1);
+        quickSort(nums, 0, nums.length - 1);
         return nums;
     }
     
-    void mergeSort(int[] nums, int start, int end) {
-        if(end - start + 1 <= 1) return;
-        int mid = start + (end - start) / 2;
-        mergeSort(nums, start, mid);
-        mergeSort(nums, mid + 1, end);
-        merge(nums, start, mid, end);
+    public void quickSort(int[] nums, int start, int end) {
+        if(start >= end) {
+            return;
+        }
+        int pivot = partition(nums, start, end);
+        quickSort(nums, start, pivot - 1);
+        quickSort(nums, pivot + 1, end);
     }
     
-    void merge(int[] nums, int start, int mid, int end) {
-        int lp = start;
-        int rp = mid + 1;
-        int[] buffer = new int[end - start + 1];
-        int t = 0;
-        
-        while(lp <= mid && rp <= end) {
-            if(nums[lp] < nums[rp]) {
-                buffer[t++] = nums[lp++];
-            } else {
-                buffer[t++] = nums[rp++];
+    public int partition(int[] nums, int start, int end) {
+        swap(nums, start, start + (end - start) / 2);
+        int base = nums[start];
+        int i = start + 1;
+        int j = i;
+        while(i <= end) {
+            if(nums[i] < base) {
+                swap(nums, i, j++);
             }
+            i++;
         }
-        while(lp <= mid) buffer[t++] = nums[lp++];
-        while(rp <= end) buffer[t++] = nums[rp++];
-        for(int i = start; i <= end; i++) {
-            nums[i] = buffer[i-start];
-        }
+        swap(nums, j - 1, start);
+        return j - 1;
+    }
+    
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }
