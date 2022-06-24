@@ -1,15 +1,43 @@
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        int i = 0, j = matrix[0].length - 1;
+        if (matrix.length == 0 || matrix[0].length == 0) return false;
         
-      while(i < matrix.length && j >= 0) {
-        if(matrix[i][j] == target)
-          return true;
-        else if(matrix[i][j] > target)
-          j--;
-        else if(matrix[i][j] < target)
-          i++;
-      }
-      return false;
+        int low = 0;
+        int high = matrix.length - 1;
+        int targetRowIndex = -1;
+        
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (matrix[mid][matrix[0].length - 1] == target) {
+                return true;
+            } else if (target > matrix[mid][matrix[0].length-1]) {
+                low = mid + 1;
+            } else {
+                targetRowIndex = mid;
+                high = mid - 1;
+            }
+        }
+        
+        if (targetRowIndex == -1) {
+            return false;
+        }
+        
+        low = 0;
+        high = matrix[0].length - 1;
+        
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (matrix[targetRowIndex][mid] == target) {
+                return true;
+            } else if (target > matrix[targetRowIndex][mid]) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return false;
     }
 }
+
+// O(m) + O(n)
+// O(log(m)) + O(log(n))
