@@ -1,42 +1,28 @@
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> res = new ArrayList();
-        
-        if(matrix.length == 0) return res;
-        
-        int beginRow = 0;
-        int endRow = matrix.length - 1;
-        int beginCol = 0;
-        int endCol = matrix[0].length - 1;
-        
-        while(beginRow <= endRow && beginCol <= endCol){
-            
-            for(int i = beginCol; i <= endCol; i++){
-                res.add(matrix[beginRow][i]);
+        List list = new ArrayList();
+        if(matrix.length == 0)
+            return list;
+        int r1 = 0, r2 = matrix.length - 1;
+        int c1 = 0, c2 = matrix[0].length - 1;
+        while(r1 <= r2 && c1 <= c2) {
+            for(int c = c1; c <= c2; c++)
+                list.add(matrix[r1][c]);
+            for(int r = r1 + 1; r <= r2; r++)
+                list.add(matrix[r][c2]);
+            if(r1 < r2 && c1 < c2) {
+                for(int c = c2 - 1; c > c1; c--)
+                    list.add(matrix[r2][c]);
+                for(int r = r2; r > r1; r--)
+                    list.add(matrix[r][c1]);
             }
-            beginRow++;
-            
-            for(int i = beginRow; i <= endRow; i++){
-                res.add(matrix[i][endCol]);
-            }
-            
-            endCol--;
-            
-            if(beginRow <= endRow){
-                for(int i = endCol; i >= beginCol; i--){
-                    res.add(matrix[endRow][i]);
-                }
-            }
-            
-            endRow--;
-            
-            if(beginCol <= endCol){
-                for(int i = endRow; i >= beginRow; i--){
-                    res.add(matrix[i][beginCol]);
-                }
-            }
-            beginCol++;
+            r1++;
+            r2--;
+            c1++;
+            c2--;
         }
-        return res;
+        return list;
     }
 }
+
+// TC: o(m*n) SC: o(1)
