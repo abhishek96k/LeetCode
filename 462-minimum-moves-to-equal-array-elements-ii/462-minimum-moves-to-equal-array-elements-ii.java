@@ -13,3 +13,4 @@ class Solution {
         return steps;
     }
 }
+//  TC: o(nlogn) SC: o(1)
