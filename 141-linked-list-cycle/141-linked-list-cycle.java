@@ -1,4 +1,4 @@
-
+// TC: O(N) SC: O(1)
 public class Solution {
     public boolean hasCycle(ListNode head) {
         ListNode slow = head, fast = head;
