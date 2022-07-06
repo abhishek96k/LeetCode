@@ -1,25 +1,17 @@
+
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        if(head == null) {
+        ListNode slow = head, fast = head;
+        if(fast == null || fast.next == null) {
             return false;
         }
-        
-        ListNode slow = head;
-        ListNode fast = head;
-        
-        return helper(slow,fast);
-    }
-    
-    private static boolean helper(ListNode slow, ListNode fast){
-        if(fast == null || fast.next == null){
-            return false;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow) {
+                return true;
+            }
         }
-        slow = slow.next;
-        fast = fast.next.next;
-        
-        if(slow == fast){
-            return true;
-        }
-        return helper(slow,fast);
+        return false;
     }
 }
