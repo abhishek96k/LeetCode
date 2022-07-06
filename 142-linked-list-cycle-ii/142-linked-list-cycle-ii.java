@@ -1,19 +1,21 @@
+// TC : O(N) SC: O(1)
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        ListNode fast = head, slow = head;              
-        while(fast != null && fast.next != null){       
-                                                 
-            fast = fast.next.next;                  
-            slow = slow.next;                      
-            if(fast == slow){                       
-                ListNode slow2 = head;             
-                while(slow != slow2){               
-                    slow2 = slow2.next;         
-                    slow = slow.next;           
+        
+        ListNode slow = head, fast = head, start = null;
+        
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow) {
+                start = head;
+                while(start != slow){
+                    start = start.next;
+                    slow = slow.next;
                 }
-                return slow;                    
+                break;
             }
         }
-        return null;                            
+        return start;
     }
 }
