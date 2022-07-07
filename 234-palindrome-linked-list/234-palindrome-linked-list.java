@@ -1,3 +1,4 @@
+// TC: O(N) SC: O(1)
 public class Solution {
     public boolean isPalindrome(ListNode head) {
         if(head == null || head.next == null) {
