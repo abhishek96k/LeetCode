@@ -1,22 +1,22 @@
+// TC: O(N) SC: O(N)
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        
-        ListNode node = head;         
-        int count = 0;
-        while(count < k){
-            if(node == null) return head;
-            node = node.next;
-            count++;
+        if(k == 1 || head == null) return head;
+        int count = k;
+        ListNode curr = head;
+        while(curr != null && count != 0) {
+            count--;
+            curr = curr.next;
         }
-        ListNode pre = reverseKGroup(node, k);
-        while(count > 0){
-            ListNode next = head.next;
-            head.next = pre;
-            pre = head;
-            head = next;
-            count = count - 1;
+        if(count > 0) return head;
+        ListNode prev = reverseKGroup(curr, k);
+        ListNode currHead = head;
+        for(int i = 0; i < k; i++) {
+            ListNode next = currHead.next;
+            currHead.next = prev;
+            prev = currHead;
+            currHead = next;
         }
-        return pre;
-        
+        return prev;
     }
 }
