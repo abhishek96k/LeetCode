@@ -1,11 +1,8 @@
-public class Solution {
+
+class Solution {
     public TreeNode invertTree(TreeNode root) {
-        
-        if(root == null){
-            return null;
-        }
-        
-        final TreeNode left = root.left, right = root.right;
+        if(root == null) return null;
+        TreeNode left = root.left, right = root.right;
         root.left = invertTree(right);
         root.right = invertTree(left);
         return root;
