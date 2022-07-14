@@ -1,12 +1,6 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-
-        // check s & t length are = || !=
-        if(s.length() != t.length()) {
-            return false;
-        }
-        
-        // Creating two hashMap to store s & t values
+        if(s.length() != t.length()) return false;
         
         HashMap<Character, Character> map1 = new HashMap<>();
         HashMap<Character, Boolean> map2 = new HashMap<>();
