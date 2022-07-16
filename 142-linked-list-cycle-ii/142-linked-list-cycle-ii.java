@@ -1,13 +1,12 @@
-// TC : O(N) SC: O(1)
+// Use Floyd's cycle detection algo
+// TC:O(N) SC: O(1)
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        
         ListNode slow = head, fast = head, start = null;
-        
         while(fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if(fast == slow) {
+            if(fast == slow){
                 start = head;
                 while(start != slow){
                     start = start.next;
