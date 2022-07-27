@@ -1,7 +1,6 @@
+
 class Solution {
-    
     TreeNode prev = null;
-    
     public void flatten(TreeNode root) {
         if(root == null) return;
         flatten(root.right);
@@ -11,4 +10,3 @@ class Solution {
         prev = root;
     }
 }
-// TC: O(N) SC: O(1)
