@@ -1,4 +1,3 @@
-
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         while(true){
@@ -6,10 +5,8 @@ class Solution {
                 root = root.left;
             else if(root.val < p.val && root.val < q.val)
                 root = root.right;
-            else
+            else 
                 return root;
         }
     }
 }
-
-
