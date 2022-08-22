@@ -1,22 +1,17 @@
 class Solution {
     public int[][] matrixReshape(int[][] mat, int r, int c) {
-        int[][] reshape = new int[r][c];
-        int ri = 0;
-        int ci = 0;
-        
-        if(r*c != mat.length*mat[0].length) {
-            return mat;
+        int m = mat.length;
+        int n = mat[0].length;
+        if(m*n != r*c) return mat;
+        if(r==m && c==n) return mat;
+        int n_index = 0;
+        int o_index = 0;
+        int n_mat[][] = new int[r][c];
+        while(n_index < r*c && o_index < m*n){
+            n_mat[n_index/c][n_index%c] = mat[o_index/n][o_index%n];
+            n_index++;
+            o_index++;
         }
-        
-        for(int i = 0; i < mat.length; i++) {
-            for(int j = 0; j < mat[i].length; j++) {
-                reshape[ri][ci++] = mat[i][j];
-                if(ci == c){
-                    ci = 0;
-                    ++ri;
-                }
-            }
-        }
-        return reshape;
+        return n_mat;
     }
 }
