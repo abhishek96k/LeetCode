@@ -5,11 +5,10 @@ class Solution {
         }
         int rev = 0;
         int num = x;
-        
         while(num > rev){
             int lastDigit = num % 10;
             rev = rev * 10 + lastDigit;
-            num = num / 10;
+            num = num/10;
         }
         return num == rev / 10 || num == rev;
     }
