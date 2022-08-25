@@ -13,3 +13,5 @@ class Solution {
         return true;
     }
 }
+
+// TC: O(M+N) SC: O(1)
