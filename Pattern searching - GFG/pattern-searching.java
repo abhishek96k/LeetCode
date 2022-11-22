@@ -33,8 +33,12 @@ class GFG {
 class Solution {
     public static boolean searchPattern(String str, String pat) {
         // code here
-        boolean ans = str.indexOf(pat) == -1 ? false : true;
-        return ans;
+        int ans = str.indexOf(pat);
+        if(ans == -1){
+            return false;
+        }
+        else 
+        return true;
     }
 }
         
