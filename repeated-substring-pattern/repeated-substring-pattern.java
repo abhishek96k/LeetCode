@@ -1,15 +1,14 @@
 class Solution {
     public boolean repeatedSubstringPattern(String s) {
-        int n = s.length();
-        for(int i = 1; i <= n/2; i++) {
-            if(n % i == 0) {
-                StringBuilder str = new StringBuilder();
-                for(int j = 0; j < n/i; j++) {
-                    str.append(s.substring(0, i));
-                }
-                if(s.equals(str.toString())) {
+        for(int i = 1; i <= s.length()/2; i++){
+            if(s.length()%i == 0)
+            {
+                String part = s.substring(0, i);
+                int j = i;
+                while(j < s.length() && s.substring(j, j+i).equals(part))
+                    j+=i;
+                if(j==s.length())
                     return true;
-                }
             }
         }
         return false;
