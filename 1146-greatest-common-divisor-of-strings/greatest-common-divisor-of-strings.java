@@ -13,7 +13,7 @@ class Solution {
             return "";
         }
 
-        int gcdLength = gcd(str1.length(), str2.length());
-        return str1.substring(0, gcdLength);
+        int len = gcd(str1.length(), str2.length());
+        return str1.substring(0, len);
     }
 }
