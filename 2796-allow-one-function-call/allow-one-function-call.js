@@ -2,15 +2,14 @@
  * @param {Function} fn
  * @return {Function}
  */
-var once = function (fn) {
+var once = function(fn) {
     let flag = false;
-    return function (...args) {
-        if (!flag) {
-            flag = true;
-            return fn(...args);
-        } else {
+    return function(...args){
+        if(flag) {
             return undefined;
         }
+        flag = true;
+        return fn(...args);
     }
 };
 
