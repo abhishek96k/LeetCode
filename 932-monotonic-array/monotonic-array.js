@@ -2,24 +2,13 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var isMonotonic = function (nums) {
-    let left = nums[0];
-    let right = nums[nums.length - 1];
+var isMonotonic = function(nums) {
+    let increasing = true;
+    let decreasing = true;
 
-    if (left === right) {
-        for (let i = 0; i < nums.length - 1; i++) {
-            if (nums[i + 1] !== nums[i]) return false;
-        }
+    for(let i = 0; i < nums.length - 1; i++) {
+        if(nums[i] < nums[i+1]) decreasing = false;
+        if(nums[i] > nums[i+1]) increasing = false;
     }
-    else if (left < right) {
-        for (let i = 0; i < nums.length; i++) {
-            if (nums[i + 1] < nums[i]) return false;
-        }
-    }
-    else {
-        for (let i = 0; i < nums.length - 1; i++) {
-            if (nums[i + 1] > nums[i]) return false;
-        }
-    }
-    return true;
+    return increasing | decreasing;
 };
