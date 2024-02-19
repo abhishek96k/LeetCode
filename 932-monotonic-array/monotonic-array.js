@@ -12,10 +12,11 @@ var isMonotonic = function (nums) {
         }
     }
     else if (left < right) {
-        for (let i = 0; i < nums.length - 1; i++) {
+        for (let i = 0; i < nums.length; i++) {
             if (nums[i + 1] < nums[i]) return false;
         }
-    } else {
+    }
+    else {
         for (let i = 0; i < nums.length - 1; i++) {
             if (nums[i + 1] > nums[i]) return false;
         }
