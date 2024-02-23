@@ -4,15 +4,14 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-    const ans = {};
+    const hashTable = {};
+    let needed;
     for (let i = 0; i < nums.length; i++) {
-        let num = nums[i];
-        let want = target - num;
-        if (want in ans) {
-            const left = ans[want];
-            return [left, i];
+        needed = target - nums[i];
+        if (needed in hashTable) {
+            return [i, hashTable[needed]];
         } else {
-            ans[num] = i;
+            hashTable[nums[i]] = i;
         }
     }
 };
