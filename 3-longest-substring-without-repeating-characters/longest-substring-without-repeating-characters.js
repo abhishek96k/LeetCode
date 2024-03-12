@@ -5,14 +5,14 @@
 var lengthOfLongestSubstring = function (s) {
     let max = 0;
     let start = 0;
-    const obj = {};
+    let set = {};
     for (let i = 0; i < s.length; i++) {
-        const char = s[i];
-        if (char in obj) {
-            start = Math.max(start, obj[char] + 1);
+        let char = s[i];
+        if (char in set) {
+            start = Math.max(start, set[char] + 1);
         }
         max = Math.max(max, i - start + 1);
-        obj[char] = i;
+        set[char] = i;
     }
     return max;
 };
