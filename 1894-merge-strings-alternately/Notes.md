@@ -1,1 +1,1 @@
-<h2>merge-strings-alternately Notes</h2><hr>[ Time taken: 10 m 5 s ]
+<h2>merge-strings-alternately Notes</h2><hr>[ Time taken: 4 m 10 s ]
