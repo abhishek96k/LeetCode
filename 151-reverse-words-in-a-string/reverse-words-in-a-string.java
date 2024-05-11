@@ -10,11 +10,10 @@ class Solution {
                 break;
             while (i >= 0 && s.charAt(i) != ' ')
                 i--;
-
             if (ans.isEmpty()) {
                 ans = ans.concat(s.substring(i + 1, j + 1));
             } else {
-                ans = ans.concat(" " + s.substring(i + 1, j + 1));
+                ans = ans.concat(' ' + s.substring(i + 1, j + 1));
             }
         }
         return ans;
