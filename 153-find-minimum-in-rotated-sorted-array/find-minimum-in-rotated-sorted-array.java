@@ -8,7 +8,7 @@ class Solution {
             int mid = (start + end) / 2;
             if(nums[start] <= nums[mid]) {
                 ans = Math.min(ans, nums[start]);
-                start = mid + 1;
+                start = mid + 1;    
             } else {
                 ans = Math.min(ans, nums[mid]);
                 end = mid - 1;
