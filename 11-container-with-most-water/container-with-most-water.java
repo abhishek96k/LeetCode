@@ -6,10 +6,11 @@ class Solution {
         while (start < end) {
             int minArea = Math.min(height[start], height[end]);
             ans = Math.max(ans, minArea * (end - start));
-            if (minArea == height[start])
+            if (minArea == height[start]) {
                 start++;
-            else
+            } else {
                 end--;
+            }
         }
         return ans;
     }
