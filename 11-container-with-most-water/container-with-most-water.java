@@ -3,6 +3,7 @@ class Solution {
         int ans = 0;
         int start = 0;
         int end = height.length - 1;
+
         while (start < end) {
             int minArea = Math.min(height[start], height[end]);
             ans = Math.max(ans, minArea * (end - start));
