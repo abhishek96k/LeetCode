@@ -4,7 +4,6 @@ class Solution {
             return b;
         if (b == 0)
             return a;
-
         while (b != 0) {
             int carry = a & b;
             a = a ^ b;
