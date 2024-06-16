@@ -9,13 +9,11 @@ class Solution {
                 count++;
             else if(s.charAt(i) == ')')
                 count--;
-
-            if(count == 1 && flag == true){
+            if(count == 1 && flag == true) {
                 flag = false;
                 continue;
             }
-            
-            if(count == 0 && flag == false){
+            if(count == 0 && flag == false) {
                 flag = true;
                 continue;
             }
