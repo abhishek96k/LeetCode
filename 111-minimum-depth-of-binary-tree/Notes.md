@@ -1,1 +1,1 @@
-<h2>minimum-depth-of-binary-tree Notes</h2><hr>[ Time taken: 16 m 22 s ]
+<h2>minimum-depth-of-binary-tree Notes</h2><hr>[ Time taken: 8 m 56 s ]
