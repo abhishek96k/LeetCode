@@ -25,13 +25,13 @@ class Solution {
             double sum = 0;
             while(numberOfElements-->0) {
                 TreeNode node = q.poll();
+                sum += node.val;
                 if(node.left != null) {
                     q.add(node.left);
                 }
                 if(node.right != null) {
                     q.add(node.right);
                 }
-                sum += node.val;
             }
             result.add(sum / size);
         }
