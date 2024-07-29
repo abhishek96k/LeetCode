@@ -4,9 +4,11 @@
  * @return {Array}
  */
 var chunk = function (arr, size) {
-    const chunkArr = [];
+    const chunkArray = [];
+
     for (let i = 0; i < arr.length; i += size) {
-        chunkArr.push(arr.slice(i, i + size));
+        chunkArray.push(arr.slice(i, i + size));
     }
-    return chunkArr;
+
+    return chunkArray;
 };
