@@ -3,7 +3,7 @@
  * @return {number}
  */
 var climbStairs = function (n) {
-    const dp = new Array(n + 1).fill(0);
+    const dp = new Array(n - 1).fill(0);
     dp[0] = 1;
     dp[1] = 1;
 
