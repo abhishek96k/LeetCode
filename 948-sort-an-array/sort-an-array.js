@@ -13,25 +13,21 @@ var sortArray = function (nums) {
     const sortedRight = sortArray(right);
 
     return merge(sortedLeft, sortedRight);
-
 };
 
 function merge(left, right) {
-    const mergedResult = [];
-
-    let l = 0;
-    let r = 0;
+    const sortedResult = [];
+    let l = 0, r = 0;
 
     while (l < left.length && r < right.length) {
         if (left[l] < right[r]) {
-            mergedResult.push(left[l]);
+            sortedResult.push(left[l]);
             l++;
         } else {
-            mergedResult.push(right[r]);
+            sortedResult.push(right[r]);
             r++;
         }
     }
-
-    mergedResult.push(...left.slice(l), ...right.slice(r));
-    return mergedResult;
+    sortedResult.push(...left.slice(l), ...right.slice(r));
+    return sortedResult;
 }
