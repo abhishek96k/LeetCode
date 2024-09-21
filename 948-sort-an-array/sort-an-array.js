@@ -3,41 +3,35 @@
  * @return {number[]}
  */
 var sortArray = function (nums) {
-    mergeSort(nums, 0, nums.length - 1);
-    return nums;
+    if (nums.length <= 1) return nums;
+
+    const midPoint = Math.floor(nums.length / 2);
+    const left = nums.slice(0, midPoint);
+    const right = nums.slice(midPoint);
+
+    const sortedLeft = sortArray(left);
+    const sortedRight = sortArray(right);
+
+    return merge(sortedLeft, sortedRight);
+
 };
 
-function mergeSort(array, low, high) {
-    if (low >= high) return;
+function merge(left, right) {
+    const mergedResult = [];
 
-    const mid = Math.floor((low + high) / 2);
-    mergeSort(array, low, mid);
-    mergeSort(array, mid + 1, high);
-    merge(array, low, mid, high);
+    let l = 0;
+    let r = 0;
 
-}
-
-function merge(array, low, mid, high) {
-    const n1 = mid - low + 1;
-    const n2 = high - mid;
-    const leftPart = array.slice(low, mid + 1);
-    const rightPart = array.slice(mid + 1, high + 1);
-
-    let p1 = 0, p2 = 0, writeInd = low;
-
-    while (p1 < n1 && p2 < n2) {
-        if (leftPart[p1] <= rightPart[p2]) {
-            array[writeInd++] = leftPart[p1++];
+    while (l < left.length && r < right.length) {
+        if (left[l] < right[r]) {
+            mergedResult.push(left[l]);
+            l++;
         } else {
-            array[writeInd++] = rightPart[p2++];
+            mergedResult.push(right[r]);
+            r++;
         }
     }
 
-    while (p1 < n1) {
-        array[writeInd++] = leftPart[p1++];
-    }
-
-    while (p2 < n2) {
-        array[writeInd++] = rightPart[p2++];
-    }
+    mergedResult.push(...left.slice(l), ...right.slice(r));
+    return mergedResult;
 }
